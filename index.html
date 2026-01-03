@@ -48,7 +48,7 @@
   <div class="container">
     <div class="top">
       <div><iframe src="logo.html"></iframe></div>
-      <div><iframe src="header.html"></iframe></div>
+      <div><iframe src="header.html" id="headerFrame"></iframe></div>
     </div>
     <div class="middle">
       <iframe src="homelink.html" id="homelinkFrame"></iframe>
@@ -63,13 +63,18 @@
     function setLinkTargets(frameId) {
       const frame = document.getElementById(frameId);
       frame.addEventListener("load", () => {
-        const links = frame.contentDocument.querySelectorAll("a");
-        links.forEach(link => link.setAttribute("target", "contentFrame"));
+        try {
+          const links = frame.contentDocument.querySelectorAll("a");
+          links.forEach(link => link.setAttribute("target", "contentFrame"));
+        } catch (e) {
+          console.warn("Cross-origin restriction: links cannot be modified in", frameId);
+        }
       });
     }
 
     setLinkTargets("menuFrame");
     setLinkTargets("homelinkFrame");
+    setLinkTargets("headerFrame");
   </script>
 </body>
 </html>

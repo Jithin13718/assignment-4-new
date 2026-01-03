@@ -1,24 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>My restaurant</title>
+    <title>My restaurant</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .top {
+            display: flex;
+            flex: 2;
+        }
+        .logo {
+            flex: 2;
+            background: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header {
+            flex: 8;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .middle {
+            flex: 1;
+            background: #ffe4b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bottom {
+            display: flex;
+            flex: 5;
+        }
+        .menu {
+            flex: 4;
+            background: #fafafa;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .content {
+            flex: 6;
+            background: #fff;
+            padding: 10px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="logo">
+                <h2>Logo Area</h2>
+            </div>
+            <div class="header">
+                <h1>Header Area</h1>
+            </div>
+        </div>
 
-<frameset rows="40%,10%,*" border="0" frameborder="0" framespacing="0">
+        <div class="middle">
+            <nav>
+                <a href="#">Home</a> |
+                <a href="#">Restaurants</a> |
+                <a href="#">Ratings</a> |
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
 
-	<frameset cols="20%,*" border="0" frameborder="0" framespacing="0">
-		<frame src="logo.html" frameborder="0" scrolling="no">
-		<frame src="header.html" frameborder="0" scrolling="no">
-	</frameset>
-
-	<frameset cols="*" border="0" frameborder="0" framespacing="0">
-		<frame src="homelink.html" frameborder="0" scrolling="no">
-	</frameset>
-
-	<frameset cols="40%,*" border="0" frameborder="0" framespacing="0">
-		<frame src="Menu.html" frameborder="0">
-		<frame name="contentFrame" frameborder="0">
-	</frameset>
-
-</frameset>
-
+        <div class="bottom">
+            <div class="menu">
+                <h3>Menu Section</h3>
+                <ul>
+                    <li>Pizza</li>
+                    <li>Burgers</li>
+                    <li>Pasta</li>
+                </ul>
+            </div>
+            <div class="content">
+                <h3>Content Section</h3>
+                <p>Welcome to My Restaurant!</p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

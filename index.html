@@ -54,9 +54,21 @@
       <iframe src="homelink.html"></iframe>
     </div>
     <div class="bottom">
-      <div><iframe src="Menu.html"></iframe></div>
-      <div><iframe name="contentFrame"></iframe></div>
+      <div><iframe src="Menu.html" id="menuFrame"></iframe></div>
+      <div><iframe name="contentFrame" id="contentFrame"></iframe></div>
     </div>
   </div>
+
+  <script>
+    function setLinkTargets(frameId) {
+      const frame = document.getElementById(frameId);
+      frame.addEventListener("load", () => {
+        const links = frame.contentDocument.querySelectorAll("a");
+        links.forEach(link => link.setAttribute("target", "contentFrame"));
+      });
+    }
+
+    setLinkTargets("menuFrame");
+  </script>
 </body>
 </html>
